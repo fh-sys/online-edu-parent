@@ -1,11 +1,9 @@
 package com.atguigu.response;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.Data;
-import lombok.Value;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +25,7 @@ public class RetVal {
     @ApiModelProperty(value = "返回结果的信息")
     private String message;
     @ApiModelProperty(value = "返回的数据")
-    private Map<String, Object> map = new HashMap<>();
+    private Map<String, Object> data = new HashMap<>();
 
     @ApiOperation(value = "成功")
     public static RetVal success(){
@@ -61,13 +59,13 @@ public class RetVal {
 
     @ApiOperation(value = "设置返回单值数据，链式调用")
     public RetVal data(String key,Object value){
-        this.map.put(key,value);
+        this.data.put(key,value);
         return this;
     }
 
     @ApiOperation(value = "设置返回的键值数据")
     public RetVal data(Map<String, Object> map){
-        this.setMap(map);
+        this.setData(map);
         return this;
     }
 
