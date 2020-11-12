@@ -39,4 +39,25 @@ public interface EduSubjectService extends IService<EduSubject> {
      * @return
      */
     List<SubjectResponse> getAllSubject();
+
+    /**
+     * 添加一级分类
+     * @param eduSubject
+     * @return
+     */
+    boolean saveParentSubject(EduSubject eduSubject);
+
+    /**
+     * 添加二级分类信息
+     * @param eduSubject
+     * @return
+     */
+    boolean saveChildrenSubject(EduSubject eduSubject);
+
+    /**
+     * 根据id删除课程分类信息，如果该课程分类有子节点删除失败
+     * @param subjectId
+     * @return
+     */
+    boolean deleteSubjectById(String subjectId);
 }

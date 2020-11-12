@@ -14,7 +14,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -92,4 +91,47 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         }
         return subjectResponseList;
     }
+
+    @Override
+    public boolean saveParentSubject(EduSubject eduSubject) {
+        //添加一级分类之前首先判断一级分类是否存在，不存在才添加
+        EduSubject parentSubject = existByTitleAndParentId(eduSubject.getTitle(),"0");
+        if (parentSubject ==null){
+            parentSubject = new EduSubject();
+            parentSubject.setTitle(eduSubject.getTitle());
+            parentSubject.setParentId("0");
+            int row = baseMapper.insert(parentSubject);
+            return row>0;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean saveChildrenSubject(EduSubject eduSubject) {
+        //添加二级分类之前首先判断二级分类是否存在，如果不存在才添加
+        EduSubject childrenSubject = existByTitleAndParentId(eduSubject.getTitle(), eduSubject.getParentId());
+        if (childrenSubject==null){
+            childrenSubject = new EduSubject();
+            childrenSubject.setTitle(eduSubject.getTitle());
+            childrenSubject.setParentId(eduSubject.getParentId());
+            int row = baseMapper.insert(childrenSubject);
+            return row>0;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteSubjectById(String subjectId) {
+        QueryWrapper<EduSubject> queryWrapper = new QueryWrapper<>();
+        //根据课程分类id统计字分类的数量，如果大于零则不能删除
+        queryWrapper.eq("parent_id",subjectId);
+        Integer count = baseMapper.selectCount(queryWrapper);
+        if (count>0) {
+            throw new MyRuntimeException(20001,"该课程分类存在子级分类不能删除");
+        }else {
+            return true;
+        }
+    }
+
+
 }

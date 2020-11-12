@@ -45,7 +45,6 @@ public class EduTeacherController {
     @GetMapping
     public RetVal getAllTeacher(){
 
-        int a = 10/0;
         List<EduTeacher> teacherList = eduTeacherService.list(null);
         return RetVal.success().data("teacherList",teacherList);
     }
