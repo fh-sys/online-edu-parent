@@ -2,11 +2,14 @@ package com.atguigu.edu.service.impl;
 
 import com.atguigu.edu.entity.EduSection;
 import com.atguigu.edu.mapper.EduSectionMapper;
+import com.atguigu.edu.openfeign.VideoServiceFeign;
 import com.atguigu.edu.service.EduSectionService;
 import com.atguigu.handler.MyRuntimeException;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  * <p>
@@ -19,6 +22,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class EduSectionServiceImpl extends ServiceImpl<EduSectionMapper, EduSection> implements EduSectionService {
 
+    @Autowired
+    private VideoServiceFeign videoServiceFeign;
     @Override
     public void addSection(EduSection section) {
         //1.判断是否存在小节
@@ -36,7 +41,13 @@ public class EduSectionServiceImpl extends ServiceImpl<EduSectionMapper, EduSect
 
     @Override
     public void deleteSection(String id) {
-        //TODO 删除视频
+        //删除视频
+        EduSection eduSection = baseMapper.selectById(id);
+        String videoSourceId = eduSection.getVideoSourceId();
+        if (!StringUtils.isEmpty(videoSourceId)){
+            videoServiceFeign.deleteSingleVideo(videoSourceId);
+        }
+        //删除小节
         baseMapper.deleteById(id);
     }
 }

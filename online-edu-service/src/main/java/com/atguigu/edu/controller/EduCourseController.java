@@ -87,8 +87,14 @@ public class EduCourseController {
             return RetVal.success();
         }else {
             return RetVal.error();
-
         }
+    }
+
+    @ApiOperation("删除课程")
+    @DeleteMapping("{courseId}")
+    public RetVal deleteCourseByCourseId(@PathVariable("courseId")String courseId){
+         courseService.deleteCourseByCourseId(courseId);
+        return RetVal.success();
     }
 }
 

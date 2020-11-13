@@ -65,7 +65,7 @@ public class EduChapterController {
 
     @ApiOperation("删除章节信息")
     @DeleteMapping("{chapterId}")
-    public RetVal deleteChapter(@PathVariable String chapterId){
+    public RetVal deleteChapter(@PathVariable("chapterId") String chapterId){
         boolean flag = chapterService.deleteChapter(chapterId);
         if(flag){
             return RetVal.success();

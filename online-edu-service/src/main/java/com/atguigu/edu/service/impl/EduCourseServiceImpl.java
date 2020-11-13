@@ -2,6 +2,7 @@ package com.atguigu.edu.service.impl;
 
 import com.atguigu.edu.entity.*;
 import com.atguigu.edu.mapper.EduCourseMapper;
+import com.atguigu.edu.openfeign.VideoServiceFeign;
 import com.atguigu.edu.service.*;
 import com.atguigu.edu.vo.CourseInfoVo;
 import com.atguigu.edu.vo.PublishCourseVO;
@@ -12,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -27,11 +32,14 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Autowired
     private EduCourseDescriptionService courseDescriptionService;
     @Autowired
-    private EduTeacherService teacherService;
-    @Autowired
-    private EduSubjectService subjectService;
+    private EduChapterService chapterService;
     @Autowired
     private EduSectionService sectionService;
+    /**
+     * 通过feign远程调用
+     */
+    @Autowired
+    private VideoServiceFeign videoServiceFeign;
     @Override
     public CourseInfoVo getCourseById(String courseId) {
         EduCourse eduCourse = baseMapper.selectById(courseId);
@@ -82,5 +90,35 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     public PublishCourseVO getPublishCourseInfo(String courseId) {
         PublishCourseVO publishCourseVO = baseMapper.selectPublishCourseInfoByCourseId(courseId);
         return publishCourseVO;
+    }
+
+    @Override
+    public void deleteCourseByCourseId(String courseId) {
+        //删除课程
+        baseMapper.deleteById(courseId);
+        //删除课程描述
+        EduCourseDescription courseDescriptionById = courseDescriptionService.getById(courseId);
+        if (courseDescriptionById !=null){
+            courseDescriptionService.removeById(courseDescriptionById);
+        }
+        //删除章节
+        QueryWrapper<EduChapter> chapterQueryWrapper = new QueryWrapper<>();
+        chapterQueryWrapper.eq("course_id",courseId);
+        chapterService.remove(chapterQueryWrapper);
+
+        QueryWrapper<EduSection> sectionQueryWrapper = new QueryWrapper<>();
+        sectionQueryWrapper.eq("course_id",courseId);
+        List<EduSection> sectionList = sectionService.list(sectionQueryWrapper);
+        //获取视频id的集合
+        List<String> videoIds = new ArrayList<>();
+        for (EduSection eduSection : sectionList) {
+            if (!StringUtils.isEmpty(eduSection.getVideoSourceId())){
+                videoIds.add(eduSection.getVideoSourceId());
+            }
+        }
+        //删除每个小节所对应的视频
+        videoServiceFeign.deleteMutilVideo(videoIds);
+        //删除小节
+        sectionService.remove(sectionQueryWrapper);
     }
 }
