@@ -18,14 +18,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public RetVal exceptionHandler(Exception e){
-        System.out.println(e.getMessage());
+        System.err.println(e.getMessage());
         return RetVal.error().message("出现了全局异常");
     }
 
-    @ExceptionHandler(RuntimeException.class)
+    @ExceptionHandler(MyRuntimeException.class)
     @ResponseBody
     public RetVal MyRuntimeException(MyRuntimeException e){
-        System.out.println(e.getMessage());
+        System.err.println(e.getMessage());
         return RetVal.error().message("出现了自定义异常");
     }
 

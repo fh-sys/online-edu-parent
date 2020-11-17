@@ -8,11 +8,15 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8888/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8888/eureka/
 
 oss:
   accessKeyId: LTAI4GDwakZfc4ws4xRNZqWA

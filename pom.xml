@@ -13,6 +13,9 @@
         <module>online-edu-oss</module>
         <module>online-edu-video</module>
         <module>online-edu-register</module>
+        <module>online-edu-user</module>
+        <module>online-edu-user</module>
+        <module>online-edu-statistics</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -20,7 +23,7 @@
         <artifactId>spring-boot-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
         <version>2.2.6.RELEASE</version>
-    </parent>
+    </parent>ResourceProperties
     <properties>
         <java.version>1.8</java.version>
         <guli.version>0.0.1-SNAPSHOT</guli.version>

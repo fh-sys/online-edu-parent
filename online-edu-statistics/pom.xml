@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>online-edu-service</artifactId>
+    <artifactId>online-edu-statistics</artifactId>
 
     <dependencies>
         <!--引入common依赖-->
@@ -18,10 +18,11 @@
             <artifactId>online-edu-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--mybatis-plus-->
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.0.5</version>
         </dependency>
         <!--mysql-->
         <dependency>
@@ -49,10 +50,10 @@
         </dependency>
 
         <!--服务注册-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -63,5 +64,18 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+            <version>3.0.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+            <version>3.1.2</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+
 </project>

@@ -1,22 +1,23 @@
 package com.atguigu;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * @ClassName RegisterApplication
- * @Description: springboot注册中心启动类
+ * @ClassName UserAppilcation
+ * @Description: springboot用户启动类
  * @Author Hao
- * @Date 2020/11/12 15:23
+ * @Date 2020/11/13 20:51
  * @Version V1.0
  **/
-//@EnableEurekaServer
-@SpringBootApplication
+@MapperScan("com.atguigu.edu.mapper")
 @EnableDiscoveryClient
-public class RegisterApplication {
+@SpringBootApplication
+public class UserAppilcation {
 
     public static void main(String[] args) {
-        SpringApplication.run(RegisterApplication.class,args);
+        SpringApplication.run(UserAppilcation.class,args);
     }
 }
