@@ -61,6 +61,13 @@ public class VideoUtils {
     }
 
 
+    /**
+     * 删除多个视频
+     * @param videoIds
+     * @param accessKeyId
+     * @param accessKeySecret
+     * @throws ClientException
+     */
     public static void deleteMultiVideo(List<String> videoIds, String accessKeyId, String accessKeySecret) throws ClientException {
         DefaultAcsClient client = initVodClient(accessKeyId, accessKeySecret);
         DeleteVideoResponse response = new DeleteVideoResponse();
@@ -72,6 +79,13 @@ public class VideoUtils {
         System.out.print("RequestId = " + response.getRequestId() + "\n");
     }
 
+    /**
+     * 删除单个视频
+     * @param videoId
+     * @param accessKeyId
+     * @param accessKeySecret
+     * @throws ClientException
+     */
     public static void deleteSingleVideo(String videoId, String accessKeyId, String accessKeySecret) throws ClientException {
         DefaultAcsClient client = initVodClient(accessKeyId, accessKeySecret);
         DeleteVideoResponse response = new DeleteVideoResponse();

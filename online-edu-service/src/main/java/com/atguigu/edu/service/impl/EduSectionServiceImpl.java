@@ -1,6 +1,6 @@
 package com.atguigu.edu.service.impl;
 
-import com.atguigu.edu.entity.EduSection;
+import com.atguigu.entity.EduSection;
 import com.atguigu.edu.mapper.EduSectionMapper;
 import com.atguigu.edu.openfeign.VideoServiceFeign;
 import com.atguigu.edu.service.EduSectionService;

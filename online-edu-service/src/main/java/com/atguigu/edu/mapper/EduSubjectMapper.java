@@ -1,6 +1,6 @@
 package com.atguigu.edu.mapper;
 
-import com.atguigu.edu.entity.EduSubject;
+import com.atguigu.entity.EduSubject;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

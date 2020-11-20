@@ -1,8 +1,7 @@
-package com.atguigu.edu.vo;
+package com.atguigu.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

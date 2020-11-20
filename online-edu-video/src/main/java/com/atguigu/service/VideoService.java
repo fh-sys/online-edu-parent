@@ -31,4 +31,11 @@ public interface VideoService {
      * @param videoIds
      */
     void deleteMultiVideo(List<String> videoIds);
+
+    /**
+     * 获取视频播放凭证
+     * @param videoId
+     * @return
+     */
+    String getVideoPlayAuth(String videoId);
 }

@@ -1,6 +1,6 @@
 package com.atguigu.edu.service;
 
-import com.atguigu.edu.entity.EduCourseDescription;
+import com.atguigu.entity.EduCourseDescription;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

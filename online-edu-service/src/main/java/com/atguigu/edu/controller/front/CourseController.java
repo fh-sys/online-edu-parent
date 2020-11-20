@@ -1,12 +1,11 @@
 package com.atguigu.edu.controller.front;
 
-import com.atguigu.edu.entity.EduCourse;
-import com.atguigu.edu.entity.EduTeacher;
+import com.atguigu.entity.EduCourse;
 import com.atguigu.edu.service.EduChapterService;
 import com.atguigu.edu.service.EduCourseService;
 import com.atguigu.edu.service.EduTeacherService;
-import com.atguigu.edu.vo.ChapterVO;
-import com.atguigu.edu.vo.CourseDetailInfoVO;
+import com.atguigu.vo.ChapterVO;
+import com.atguigu.vo.CourseDetailInfoVO;
 import com.atguigu.response.RetVal;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.edu.mapper.EduCourseMapper">
 
-    <select id="selectPublishCourseInfoByCourseId" resultType="com.atguigu.edu.vo.PublishCourseVO">
+    <select id="selectPublishCourseInfoByCourseId" resultType="com.atguigu.vo.PublishCourseVO">
         SELECT
            ec.id courseId,
             ec.title courseName,
@@ -20,7 +20,7 @@
         WHERE
             ec.id = #{courseId}
     </select>
-    <select id="selectCourseDetailInfoById" resultType="com.atguigu.edu.vo.CourseDetailInfoVO">
+    <select id="selectCourseDetailInfoById" resultType="com.atguigu.vo.CourseDetailInfoVO">
         SELECT
             ec.title,
             ec.price,

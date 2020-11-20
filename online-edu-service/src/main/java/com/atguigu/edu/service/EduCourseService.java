@@ -1,9 +1,9 @@
 package com.atguigu.edu.service;
 
-import com.atguigu.edu.entity.EduCourse;
-import com.atguigu.edu.vo.CourseDetailInfoVO;
-import com.atguigu.edu.vo.CourseInfoVo;
-import com.atguigu.edu.vo.PublishCourseVO;
+import com.atguigu.entity.EduCourse;
+import com.atguigu.vo.CourseDetailInfoVO;
+import com.atguigu.vo.CourseInfoVo;
+import com.atguigu.vo.PublishCourseVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Map;

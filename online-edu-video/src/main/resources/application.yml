@@ -12,6 +12,9 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  redis:
+    host: 47.117.112.24
+    port: 6379
 
 #eureka:
 #  client:
@@ -19,5 +22,5 @@ spring:
 #      defaultZone: http://localhost:8888/eureka/
 
 oss:
-  accessKeyId: LTAI4GDwakZfc4ws4xRNZqWA
-  accessKeySecret: N7F3riR7uLU21aoJ0ZqJpZIJRbC5HW
+  accessKeyId:
+  accessKeySecret:

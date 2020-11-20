@@ -1,12 +1,10 @@
 package com.atguigu.edu.listener;
 
-import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import com.atguigu.edu.entity.EduSubject;
+import com.atguigu.entity.EduSubject;
 import com.atguigu.edu.service.EduSubjectService;
-import com.atguigu.edu.vo.SubjectImportVO;
-import org.springframework.beans.BeanUtils;
+import com.atguigu.vo.SubjectImportVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

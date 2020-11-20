@@ -31,7 +31,10 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-#eureka:
+  redis:
+    host: 47.112.117.24
+    port: 6379
+  #eureka:
 #  client:
 #    service-url:
 #      defaultZone: http://localhost:8888/eureka/

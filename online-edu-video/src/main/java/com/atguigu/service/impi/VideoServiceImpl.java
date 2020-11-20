@@ -1,6 +1,9 @@
 package com.atguigu.service.impi;
 
+import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
+import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
+import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
 import com.atguigu.handler.MyRuntimeException;
 import com.atguigu.service.VideoService;
 import com.atguigu.utils.VideoUtils;
@@ -59,6 +62,22 @@ public class VideoServiceImpl implements VideoService {
         } catch (ClientException e) {
             e.printStackTrace();
             throw new MyRuntimeException(20001, "视频删除失败");
+        }
+    }
+
+    @Override
+    public String getVideoPlayAuth(String videoId) {
+        try {
+            DefaultAcsClient client = VideoUtils.initVodClient(accessKeyId, accessKeySecret);
+            GetVideoPlayAuthResponse response = new GetVideoPlayAuthResponse();
+            GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
+            request.setVideoId(videoId);
+            response = client.getAcsResponse(request);
+            //播放凭证
+            return response.getPlayAuth();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new MyRuntimeException(20001,"视频凭证获取失败");
         }
     }
 }

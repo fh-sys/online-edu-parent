@@ -1,4 +1,4 @@
-package com.atguigu.edu.entity;
+package com.atguigu.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
@@ -9,7 +9,6 @@ import lombok.experimental.Accessors;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.util.Date;
 
 /**

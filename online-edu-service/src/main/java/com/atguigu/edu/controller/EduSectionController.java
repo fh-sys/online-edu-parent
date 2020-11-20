@@ -1,7 +1,7 @@
 package com.atguigu.edu.controller;
 
 
-import com.atguigu.edu.entity.EduSection;
+import com.atguigu.entity.EduSection;
 import com.atguigu.edu.service.EduSectionService;
 import com.atguigu.response.RetVal;
 import io.swagger.annotations.Api;

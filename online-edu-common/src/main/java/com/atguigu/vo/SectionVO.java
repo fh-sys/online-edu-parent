@@ -1,4 +1,4 @@
-package com.atguigu.edu.vo;
+package com.atguigu.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -22,5 +22,8 @@ public class SectionVO {
 
     @ApiModelProperty(value = "节点名称")
     private String title;
+
+    @ApiModelProperty(value = "视频id")
+    private String videoSourceId;
 
 }

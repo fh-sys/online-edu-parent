@@ -1,10 +1,9 @@
-package com.atguigu.edu.vo;
+package com.atguigu.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  *查询课程传递信息实体

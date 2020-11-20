@@ -1,22 +1,20 @@
 package com.atguigu.edu.service.impl;
 
-import com.atguigu.edu.entity.*;
+import com.atguigu.entity.*;
 import com.atguigu.edu.mapper.EduCourseMapper;
 import com.atguigu.edu.openfeign.VideoServiceFeign;
 import com.atguigu.edu.service.*;
-import com.atguigu.edu.vo.CourseDetailInfoVO;
-import com.atguigu.edu.vo.CourseInfoVo;
-import com.atguigu.edu.vo.PublishCourseVO;
+import com.atguigu.vo.CourseDetailInfoVO;
+import com.atguigu.vo.CourseInfoVo;
+import com.atguigu.vo.PublishCourseVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

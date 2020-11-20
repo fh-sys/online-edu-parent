@@ -1,6 +1,6 @@
 package com.atguigu.edu.service.impl;
 
-import com.atguigu.edu.entity.EduTeacher;
+import com.atguigu.entity.EduTeacher;
 import com.atguigu.edu.mapper.EduTeacherMapper;
 import com.atguigu.edu.service.EduTeacherService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

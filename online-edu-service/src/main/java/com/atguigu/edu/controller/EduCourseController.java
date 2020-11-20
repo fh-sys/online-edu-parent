@@ -1,15 +1,14 @@
 package com.atguigu.edu.controller;
 
 
-import com.atguigu.edu.entity.EduCourse;
+import com.atguigu.entity.EduCourse;
 import com.atguigu.edu.service.EduCourseService;
 import com.atguigu.edu.condition.CourseCondition;
-import com.atguigu.edu.vo.CourseInfoVo;
-import com.atguigu.edu.vo.PublishCourseVO;
+import com.atguigu.vo.CourseInfoVo;
+import com.atguigu.vo.PublishCourseVO;
 import com.atguigu.response.RetVal;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sun.org.apache.bcel.internal.generic.RET;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

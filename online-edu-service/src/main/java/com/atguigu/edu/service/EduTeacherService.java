@@ -1,6 +1,6 @@
 package com.atguigu.edu.service;
 
-import com.atguigu.edu.entity.EduTeacher;
+import com.atguigu.entity.EduTeacher;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Map;

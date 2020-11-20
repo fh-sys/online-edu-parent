@@ -1,7 +1,7 @@
 package com.atguigu.edu.controller;
 
 
-import com.atguigu.edu.entity.EduSubject;
+import com.atguigu.entity.EduSubject;
 import com.atguigu.edu.service.EduSubjectService;
 import com.atguigu.response.RetVal;
 import com.atguigu.response.SubjectResponse;

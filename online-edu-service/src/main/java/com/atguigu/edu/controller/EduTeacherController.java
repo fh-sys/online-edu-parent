@@ -1,9 +1,9 @@
 package com.atguigu.edu.controller;
 
 
-import com.atguigu.edu.entity.EduTeacher;
+import com.atguigu.entity.EduTeacher;
 import com.atguigu.edu.service.EduTeacherService;
-import com.atguigu.edu.vo.TeacherConditionVO;
+import com.atguigu.vo.TeacherConditionVO;
 import com.atguigu.handler.MyRuntimeException;
 import com.atguigu.response.RetVal;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

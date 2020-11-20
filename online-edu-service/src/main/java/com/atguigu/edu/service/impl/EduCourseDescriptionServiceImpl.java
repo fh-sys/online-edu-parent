@@ -1,6 +1,6 @@
 package com.atguigu.edu.service.impl;
 
-import com.atguigu.edu.entity.EduCourseDescription;
+import com.atguigu.entity.EduCourseDescription;
 import com.atguigu.edu.mapper.EduCourseDescriptionMapper;
 import com.atguigu.edu.service.EduCourseDescriptionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
